@@ -11,37 +11,71 @@
     <h3>Find Second Max number in array</h3>
     <h3>Find Second min number in array</h3>
     <script>
-        //Find Max and Second Max number in array
-      function MaxSecondMaxNum(){
+      //Find Max and Second Max number in array
+      function MaxSecondMaxThirdMaxNum() {
         const numbers = [12, 13, 25, 15, 14, 17];
-        let max=-Infinity;
-        let secondmax=-Infinity;
+        let max = -Infinity;
+        let secondmax = -Infinity;
+        let thirdmax = -Infinity;
         for (let i = 0; i < numbers.length; i++) {
           if (numbers[i] > max) {
             max = numbers[i];
           }
         }
-        console.log("The maximum number is: ",max);
-        for(let i=0;i<numbers.length;i++){
-            if(numbers[i]>secondmax && numbers[i]<max){
-                secondmax=numbers[i];
-            }
+        console.log("The maximum number is: ", max);
+        for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] > secondmax && numbers[i] < max) {
+            secondmax = numbers[i];
+          }
         }
-        console.log("The second maximum number is: ",secondmax);
+        console.log("The second maximum number is: ", secondmax);
+        for (let i = 0; i < numbers.length; i++) {
+          if (
+            numbers[i] > thirdmax &&
+            numbers[i] < max &&
+            numbers[i] < secondmax
+          ) {
+            thirdmax = numbers[i];
+          }
+        }
+        console.log("The Third maximum number is: ", thirdmax);
       }
-      //Find Min number
-      function miniNumber() {
+      //Find minimum second minimum number
+      function miniSecondMiniThirdMiniNumber() {
         const numbers = [12, 13, 25, 15, 14, 17];
-        let min = numbers[1];
+        let min = Infinity;
+        let secondmini = Infinity;
+        let thirdmini = Infinity;
+        // Step 1: Find the minimum number
         for (let i = 0; i < numbers.length; i++) {
           if (numbers[i] < min) {
             min = numbers[i];
           }
         }
-        console.log("The minimum number is: ",min);
+        console.log("The minimum number is: ", min);
+
+        // Step 2: Find the second minimum number
+        for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] < secondmini && numbers[i] > min) {
+            secondmini = numbers[i];
+          }
+        }
+        console.log("The second minimum number is: ", secondmini);
+        // Step 3: Find the third minimum number
+        for (let i = 0; i < numbers.length; i++) {
+          if (
+            numbers[i] < thirdmini &&
+            numbers[i] > min &&
+            numbers[i] > secondmini
+          ) {
+            thirdmini = numbers[i];
+          }
+        }
+        console.log("The third minimum number is: ", thirdmini);
       }
-      MaxSecondMaxNum();
-      miniNumber();
+
+      MaxSecondMaxThirdMaxNum();
+      miniSecondMiniThirdMiniNumber();
     </script>
   </body>
 </html>
